@@ -1,0 +1,16 @@
+PODS:
+  - DRDebugRing (0.1.0)
+
+DEPENDENCIES:
+  - DRDebugRing (from `..`)
+
+EXTERNAL SOURCES:
+  DRDebugRing:
+    :path: ".."
+
+SPEC CHECKSUMS:
+  DRDebugRing: 7a45757811813ea554ca71709c5a00b1e80d770f
+
+PODFILE CHECKSUM: b1cc36c6f502a27e63503c93b23180da2b3745c0
+
+COCOAPODS: 1.16.2

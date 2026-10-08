@@ -1,0 +1,22 @@
+platform :ios, '15.0'
+install! 'cocoapods', :deterministic_uuids => true
+
+# No remote spec lookup is needed: the example consumes the pod next to this folder.
+target 'DebugRingExample' do
+  use_frameworks!
+  pod 'DRDebugRing', :path => '..', :configurations => ['Debug']
+  target 'DebugRingTests' do
+    inherit! :search_paths
+  end
+end
+
+# The example targets iOS 15, matching Xcode 27's minimum supported deployment target.
+# Override only the local pod target; the published podspec retains iOS 13 compatibility.
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    next unless target.name == 'DRDebugRing'
+    target.build_configurations.each do |configuration|
+      configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+    end
+  end
+end
